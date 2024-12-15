@@ -1,9 +1,8 @@
-import jwt
 from datetime import datetime, timedelta, timezone
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
-
 from .config import settings
+import jwt
 
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
@@ -41,4 +40,4 @@ def decode_jwt(token: str = Depends(oauth2_scheme)) -> dict:
 
 
 def get_user_from_token(payload: dict = Depends(decode_jwt)) -> str:
-    return payload['sub']
+    return payload["sub"]
