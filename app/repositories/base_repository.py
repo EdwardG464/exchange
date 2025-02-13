@@ -26,7 +26,7 @@ class Repository(AbstractRepository):
     async def add_one(self, data: dict):
         stmt = insert(self.model).values(**data).returning(self.model)
         res = await self.session.execute(stmt)
-        self.session.commit()
+        await self.session.commit()
         return res.scalar_one()
 
 

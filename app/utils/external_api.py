@@ -5,7 +5,7 @@ from app.core.config import settings
 from app.api.schemas.currency import CurrencyExchange, CurrencyExchangeResponse
 
 
-def get_list_currencies() -> dict[str, str]:
+async def get_list_currencies() -> dict[str, str]:
     headers = {"apikey": settings.currency_data_api_key}
     res = httpx.get(url='https://api.apilayer.com/currency_data/list', headers=headers)
     if res.status_code != 200:
@@ -14,7 +14,7 @@ def get_list_currencies() -> dict[str, str]:
     return currencies_dict['currencies']
 
 
-def convert_currency(cur_exchange: CurrencyExchange):
+async def convert_currency(cur_exchange: CurrencyExchange):
     headers = {'apikey': settings.currency_data_api_key}
     params = {"amount": cur_exchange.amount,
               "from": cur_exchange.from_currency,

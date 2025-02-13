@@ -20,11 +20,11 @@ from app.db.models import User
 config = context.config
 
 section = config.config_ini_section
-config.set_section_option(section, "DB_HOST", settings.db_host)
-config.set_section_option(section, "DB_PORT", settings.db_port)
-config.set_section_option(section, "DB_USER", settings.db_user)
-config.set_section_option(section, "DB_NAME", settings.db_name)
-config.set_section_option(section, "DB_PASS", settings.db_pass)
+config.set_section_option(section, "DB_HOST", settings.DB_HOST)
+config.set_section_option(section, "DB_PORT", settings.DB_PORT)
+config.set_section_option(section, "DB_USER", settings.DB_USER)
+config.set_section_option(section, "DB_NAME", settings.DB_NAME)
+config.set_section_option(section, "DB_PASS", settings.DB_PASS)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

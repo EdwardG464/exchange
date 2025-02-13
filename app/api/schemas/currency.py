@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 class CurrencyExchange(BaseModel):
     from_currency: str = Field(pattern=r'^[A-Za-z]{3}', max_length=3)
     to_currency: str = Field(pattern=r'^[A-Za-z]{3}', max_length=3)
-    amount: float = 1
+    amount: float = 1.0
 
 
 class CurrencyExchangeResponse(BaseModel):
